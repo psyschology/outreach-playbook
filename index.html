@@ -1,167 +1,159 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Chosen Palette: Jetweb Labs Command Center -->
-    <!-- Application Structure Plan: A comprehensive, multi-chapter, single-page operations manual. The information architecture is a narrative journey, moving from high-level 'Vision' to the granular 'Minute-by-Minute Workflow'. Interactive elements like accordions, copy-to-clipboard buttons, and a dynamic ROI calculator with commission make dense information digestible and functional. -->
-    <!-- Visualization & Content Choices: Report Info: The entire company vision and outreach strategy. -> Goal: Onboard, train, and manage a new hire for maximum ROI. -> Viz/Presentation: A rich mix of icon-driven cards, detailed text blocks, annotated script examples, timeline layouts, and an interactive calculator. -> Interaction: Accordions to toggle deep-dive content, buttons to copy assets, and input fields for the ROI calculator. -> Justification: This multi-faceted approach transforms a static plan into an interactive training and operations tool. -->
+    <!-- Application Structure Plan: A hyper-detailed, single-page Standard Operating Procedure (SOP) manual. The architecture is a top-down, instructional format, designed for absolute clarity for a new hire. It removes all jargon and replaces it with granular, timed, step-by-step tasks, and a comprehensive script library. -->
+    <!-- Visualization & Content Choices: The playbook has been redesigned to be a pure instructional document. The core is the 'Minute-by-Minute Daily Schedule', which provides an intense, high-workload plan. A new, expansive 'Script Library' with industry-specific examples and a dedicated 'AI Personalization Engine' prompt are included to elevate the quality of outreach. The commission structure is a detailed table with clear examples and definitions. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <title>Jetweb Labs - Outreach Commando: Operations Playbook</title>
+    <title>Jetweb Labs - Lead Generation Specialist SOP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --brand-orange: #FF6B00; --brand-blue: #0077B6; --dark-bg: #0A0A0A; --light-text: #E1E1E1; --medium-text: #9ca3af; }
-        html { background-color: var(--dark-bg); }
-        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--light-text); }
-        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: #FFFFFF; }
+        :root { --brand-blue: #0ea5e9; --dark-bg: #030712; --content-bg: #111827; --border-color: #374151; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: #f9fafb; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
-        .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
-        .timeline-item::before { content: ''; position: absolute; left: 1rem; top: 1rem; bottom: -1rem; width: 2px; background-color: #374151; transform: translateX(-50%); }
-        .timeline-item:last-child::before { display: none; }
-        .timeline-dot { position: absolute; left: 1rem; top: 1rem; height: 1.25rem; width: 1.25rem; display: flex; align-items: center; justify-content: center; border-radius: 9999px; background-color: var(--dark-bg); border: 2px solid var(--brand-orange); transform: translateX(-50%); }
+        .task-block::before { content: ''; position: absolute; left: 1.25rem; top: 2.5rem; bottom: -1rem; width: 2px; background-color: #374151; }
+        .task-block:last-child::before { display: none; }
+        .task-dot { position: absolute; left: 1.25rem; top: 1.25rem; transform: translateX(-50%); }
     </style>
 </head>
 <body class="antialiased">
 
-    <div id="toast" class="fixed top-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300 z-50">
-        Copied to clipboard!
-    </div>
+    <div id="toast" class="fixed top-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300 z-50">Copied!</div>
 
-    <div class="max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
 
-        <!-- Header -->
-        <header class="text-center mb-16 fade-in-section">
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">Outreach Commando</h1>
-            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-orange-500">OPERATIONS PLAYBOOK</h2>
-            <p class="mt-4 text-lg text-gray-400">Welcome to Jetweb Labs, Somborna. This is your guide to victory.</p>
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold">Lead Generation Specialist</h1>
+            <h2 class="mt-2 text-3xl md:text-4xl font-bold text-sky-400">Standard Operating Procedure (SOP)</h2>
+            <p class="mt-4 text-lg text-gray-400">Welcome, Somborna. This document is your complete, step-by-step guide to your daily work.</p>
         </header>
 
-        <!-- A Letter from Leadership -->
-        <section class="mb-16 fade-in-section">
-            <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
-                <h3 class="text-2xl font-bold mb-4">A Message From Your Leadership</h3>
-                <p class="text-gray-300 mb-4">Somborna, we want to speak to you directly. What you are reading is not just a job description. It is the blueprint for the entire future of Jetweb Labs, and you are the person lighting the fuse. Our CEO and I have a vision that goes far beyond just building websites. We are building a digital empire, a conglomerate that launches iconic brands that help Indian businesses win.</p>
-                <p class="text-gray-300">But empires are not built on dreams. They are built on action. They are built on the first conversation, the first connection, the first client. That is your mission. You are not "sending DMs." You are on the front lines, finding the businesses that need us and making the first critical handshake. Every message you send is a seed. Your success is our success. We have created this guide to give you every possible tool and piece of knowledge to ensure you win. Read it, master it, and let's go build this empire together.</p>
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Your Main Goal at Jetweb Labs</h2>
+            <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg text-lg">
+                <p>Your job is the most important first step for our company's growth. Your one and only goal is to **find businesses on Instagram that need our help and start a friendly conversation with them.** A successful day for you is getting a positive reply. That reply becomes a potential client for the company.</p>
             </div>
         </section>
 
-        <!-- Chapter 1: The Grand Vision -->
-        <section class="mb-16 fade-in-section">
-            <h2 class="text-3xl font-bold text-center mb-8">Chapter 1: Our Grand Vision (The "Why")</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 h-full">
-                    <div class="text-5xl mb-3">🏢</div>
-                    <h4 class="text-xl font-bold mb-2">The Conglomerate</h4>
-                    <p class="text-gray-400">Jetweb Labs is the parent. The mothership. Our first brand is `jetweb.co.in` for IT services. Soon, we will launch other brands for digital products, education, and more, all from this lab.</p>
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Who to Contact: The Perfect Customer</h2>
+            <p class="text-gray-400 mb-4">We are looking for small businesses in India who are trying to sell online but are doing it badly. Your job is to find accounts that have these specific problems:</p>
+            <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-bold text-lg text-red-400 mb-2">Look for these problems (The Goldmines):</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Their bio says **"DM to order"** or **"WhatsApp to order"**. This is your #1 target.</li>
+                        <li>They have **NO website link** in their bio.</li>
+                        <li>The website link in their bio is broken, slow, or looks very old and unprofessional.</li>
+                    </ul>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 h-full">
-                    <div class="text-5xl mb-3">🇮🇳</div>
-                    <h4 class="text-xl font-bold mb-2">The Mission</h4>
-                    <p class="text-gray-400">Our mission is to become the #1 digital growth partner for small and medium-sized businesses in India. We don't just build websites; we build livelihoods.</p>
+                <div>
+                    <h3 class="font-bold text-lg text-green-400 mb-2">These are also good signs:</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>They post new content regularly.</li>
+                        <li>They sell a real product (clothes, cakes, jewelry) or service (cafe, salon).</li>
+                        <li>Their product photos are good.</li>
+                    </ul>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 h-full">
-                    <div class="text-5xl mb-3">🔑</div>
-                    <h4 class="text-xl font-bold mb-2">Your Role is the Key</h4>
-                    <p class="text-gray-400">This entire grand vision starts with ONE thing: getting clients. Without clients, the vision is just a dream. You turn our vision into reality by finding these businesses and starting the conversation.</p>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Your Minute-by-Minute Daily Schedule (Mon-Fri)</h2>
+            <p class="text-gray-400 mb-4">This 3.5-hour schedule is intense and packed. It requires your full focus. Following this schedule is how you will meet your targets and earn your commission.</p>
+            <div class="relative">
+                <div class="task-block relative pl-14 pb-8">
+                    <div class="task-dot w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center font-bold text-white">1</div>
+                    <p class="font-semibold text-gray-400">9:00 AM - 10:00 AM (60 Minutes)</p>
+                    <h3 class="text-xl font-bold mt-1">Task 1: Prospecting (Build Your Hit List)</h3>
+                    <p class="text-gray-300">Open Instagram. Your only goal is to find businesses with the problems listed above. Use the hashtags provided below. Find **30** new business accounts and add their Instagram Handle (e.g., @priyas_cakes) to a new column in your Google Sheet. **Do not contact them yet.** Just build the list.</p>
+                </div>
+                <div class="task-block relative pl-14 pb-8">
+                    <div class="task-dot w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center font-bold text-white">2</div>
+                    <p class="font-semibold text-gray-400">10:00 AM - 11:00 AM (60 Minutes)</p>
+                    <h3 class="text-xl font-bold mt-1">Task 2: The "Engage First" Protocol</h3>
+                    <p class="text-gray-300">From your list of 30, pick the best 25. Now, visit each of their profiles. For each one, you must do two things: **1. Follow them. 2. Leave one high-quality, genuine comment** on their most recent post. This proves you are a human. Update their status in the Google Sheet to "Engaged".</p>
+                </div>
+                <div class="task-block relative pl-14 pb-8">
+                    <div class="task-dot w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center font-bold text-white">3</div>
+                    <p class="font-semibold text-gray-400">11:00 AM - 12:15 PM (75 Minutes)</p>
+                    <h3 class="text-xl font-bold mt-1">Task 3: Send Personalized Messages</h3>
+                    <p class="text-gray-300">From your list of 25 you engaged with, pick the top 20. Now is the time to send a Direct Message (DM). Go to the "Script Library" section below, choose the right script for the business type, and **personalize it using the AI tool.** This is the most important part of your job. Update their status in the Google Sheet to "DM Sent".</p>
+                </div>
+                <div class="task-block relative pl-14">
+                    <div class="task-dot w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center font-bold text-white">4</div>
+                    <p class="font-semibold text-gray-400">12:15 PM - 12:30 PM (15 Minutes)</p>
+                    <h3 class="text-xl font-bold mt-1">Task 4: Final Report</h3>
+                    <p class="text-gray-300">Double-check your Google Sheet. Make sure all statuses are correct. If you received any positive replies, **immediately** take a screenshot and send it to your manager via Slack with the message "New Positive Reply". Your work for the day is complete.</p>
                 </div>
             </div>
         </section>
         
-        <!-- Chapter 2: The Treasure Map -->
-        <section class="mb-16 fade-in-section">
-            <h2 class="text-3xl font-bold text-center mb-8">Chapter 2: Your Treasure Map (Who We Hunt)</h2>
-            <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
-                <h3 class="text-2xl font-bold mb-4">Profile of a Perfect Lead:</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="text-lg font-semibold text-green-400 mb-2">GREEN FLAGS (Signs they are a good fit):</h4>
-                        <ul class="list-disc list-inside space-y-2 text-gray-300">
-                            <li>Active on Instagram (posts regularly).</li>
-                            <li>Sells a physical product or offers a local service.</li>
-                            <li>Good quality photos of their products/service.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-semibold text-red-400 mb-2">RED FLAGS (The GOLDMINES - signs they NEED us):</h4>
-                        <ul class="list-disc list-inside space-y-2 text-gray-300">
-                            <li>**"DM to order"** or **"WhatsApp to order"** in their bio.</li>
-                            <li>**No website link** in their bio.</li>
-                            <li>A link to a poorly made, slow, or broken website.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Chapter 3: The Daily Quest -->
-        <section class="mb-16 fade-in-section">
-            <h2 class="text-3xl font-bold text-center mb-8">Chapter 3: Your Daily Quest (The Workflow)</h2>
-            <div class="relative">
-                <div class="timeline-item relative pl-12 pb-10">
-                    <div class="timeline-dot"><span class="text-xs font-bold text-white">1</span></div>
-                    <p class="text-orange-500 font-semibold">9:00 - 9:45 AM (45 Mins)</p>
-                    <h3 class="text-2xl font-bold mt-1 mb-2">Phase 1: Prospecting (Finding the Treasure)</h3>
-                    <p class="text-gray-400">Your only job is to find potential clients. Use the "Hashtag Hunting Grounds". Your goal is to find 25 businesses that show our "Red Flags" and add them to your daily Google Sheet.</p>
-                </div>
-                <div class="timeline-item relative pl-12 pb-10">
-                    <div class="timeline-dot"><span class="text-xs font-bold text-white">2</span></div>
-                    <p class="text-orange-500 font-semibold">9:45 - 10:45 AM (60 Mins)</p>
-                    <h3 class="text-2xl font-bold mt-1 mb-2">Phase 2: Engage First (Winning Their Trust)</h3>
-                    <p class="text-gray-400">From your list of 25, select the top 20. Visit their profiles. **Follow them.** Leave a **genuine, personalized comment** on their most recent post. This proves you are a real human.</p>
-                </div>
-                <div class="timeline-item relative pl-12 pb-10">
-                    <div class="timeline-dot"><span class="text-xs font-bold text-white">3</span></div>
-                    <p class="text-orange-500 font-semibold">10:45 AM - 12:15 PM (90 Mins)</p>
-                    <h3 class="text-2xl font-bold mt-1 mb-2">Phase 3: The Approach (Sending the Message)</h3>
-                    <p class="text-gray-400">From your list of 20 you engaged with, pick the top 15. Use our official script, but you MUST personalize it. An un-personalized message will be ignored.</p>
-                </div>
-                <div class="timeline-item relative pl-12">
-                    <div class="timeline-dot"><span class="text-xs font-bold text-white">4</span></div>
-                    <p class="text-orange-500 font-semibold">12:15 - 12:30 PM (15 Mins)</p>
-                    <h3 class="text-2xl font-bold mt-1 mb-2">Phase 4: Reporting & Handoff</h3>
-                    <p class="text-gray-400">Update your Google Sheet completely. If you get a positive reply (e.g., "Yes, tell me more"), you have succeeded. Immediately flag it and send me a direct message with a screenshot.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Chapter 4: Your Toolkit -->
-        <section class="mb-16 fade-in-section">
-            <h2 class="text-3xl font-bold text-center mb-8">Chapter 4: Your Toolkit (Weapons & Tactics)</h2>
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">The Script Library & Personalization Engine</h2>
+            <p class="text-gray-400 mb-4">Do NOT send the same message to everyone. A personalized message gets a reply. A generic one is deleted. Use these tools to win.</p>
             <div class="space-y-4">
-                <div class="accordion-item bg-gray-900 border border-gray-700 rounded-lg">
+                 <div class="accordion-item bg-gray-800 border border-gray-700 rounded-lg">
                     <button class="accordion-header w-full text-left p-4">
-                        <h3 class="text-xl font-bold">🎯 The Hashtag Hunting Grounds</h3>
+                        <h3 class="text-xl font-bold text-sky-400">Step 1: The AI Personalization Engine (Your Secret Weapon)</h3>
                     </button>
                     <div class="accordion-content px-4 pb-4">
-                        <p class="text-gray-400">Combine these with cities (e.g., #mumbaibaker). `#bakersofmumbai`, `#delhifashionblogger`, `#bangalorecafes`, `#chennaijewellery`, `#kolkatafoodie`, `#punehomebaker`, `#hyderabadboutique`, `#ahmedabadstreetfood`, `#indianhandmade`, `#smallbusinessindia`, `#vocalforlocalindia`.</p>
+                        <p class="text-gray-300 mb-4">Before you send any message, you will use an AI tool (like ChatGPT, Gemini, etc.) to help you write the perfect opening line. Here is the exact prompt you will use.</p>
+                        <div class="bg-gray-900 p-4 rounded-lg relative">
+                             <button class="copy-btn absolute top-3 right-3 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold py-1 px-3 rounded" data-copy-target="ai-prompt">Copy</button>
+                             <pre id="ai-prompt" class="font-mono text-sm text-gray-300 whitespace-pre-wrap">Act as an expert Instagram marketer. I need to write the first two lines of a cold DM to a small business owner. My goal is to give a genuine, specific compliment about their business to build trust before I pitch my service.
+
+Here is the information about the business:
+- Business Name: [PASTE BUSINESS NAME HERE]
+- Business Type: [e.g., Home Baker, Fashion Boutique, Jewelry Store]
+- Their Instagram Bio: "[PASTE THEIR BIO HERE]"
+- Text from their most recent post: "[PASTE TEXT FROM THEIR LATEST POST HERE]"
+
+Based on this information, give me 3 options for a powerful, friendly, and highly specific opening line for my DM. The line should compliment their work and mention something unique I could only know by looking at their profile. Start the message with "Hi [Business Name]," and my name is Somborna.</pre>
+                        </div>
                     </div>
                 </div>
-                <div class="accordion-item bg-gray-900 border border-gray-700 rounded-lg">
+                <div class="accordion-item bg-gray-800 border border-gray-700 rounded-lg">
                     <button class="accordion-header w-full text-left p-4">
-                        <h3 class="text-xl font-bold">✍️ The Art of the Comment</h3>
+                        <h3 class="text-xl font-bold">Step 2: Choose Your Script Template</h3>
                     </button>
                     <div class="accordion-content px-4 pb-4">
-                        <p class="text-red-400 font-semibold">BAD Comment: "Nice pic!" "Great!" "🔥"</p>
-                        <p class="text-green-400 font-semibold">GOOD Comment (for a baker): "Wow, the texture on that croissant looks absolutely perfect!"</p>
-                    </div>
-                </div>
-                <div class="accordion-item bg-gray-900 border border-gray-700 rounded-lg">
-                    <button class="accordion-header w-full text-left p-4">
-                        <h3 class="text-xl font-bold">💌 The Perfect DM (The Official Script)</h3>
-                    </button>
-                    <div class="accordion-content px-4 pb-4">
-                         <div class="bg-gray-800 p-4 rounded-lg relative">
-                            <button id="copyScriptBtn" class="absolute top-3 right-3 bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold py-1 px-3 rounded">Copy</button>
-                            <div id="scriptContent" class="text-gray-300 space-y-3">
-                                <p><strong class="text-white">Hi [Business Name],</strong></p>
-                                <p><strong class="text-white">I'm Somborna from Jetweb Labs. I just saw your post about [Mention Something Specific - e.g., the new floral print dress] - it looks amazing!</strong></p>
-                                <p><strong class="text-white">I'm a specialist who helps great businesses like yours grow online. I noticed a couple of quick opportunities on your page to potentially attract even more customers.</strong></p>
-                                <p><strong class="text-white">Would you be open to hearing one or two free ideas? No pressure at all.</strong></p>
-                                <p><strong class="text-white">Keep up the great work!</strong></p>
+                        <p class="text-gray-400 mb-4">After you get your personalized opening line from the AI, copy and paste the rest of the message from the correct template below.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-lg text-white">Template A: For businesses selling with "DM to order" (Bakers, Crafters, etc.)</h4>
+                            <div class="bg-gray-900 p-4 rounded-lg mt-2 relative">
+                                <button class="copy-btn absolute top-3 right-3 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold py-1 px-3 rounded" data-copy-target="script-a">Copy</button>
+                                <pre id="script-a" class="font-mono text-sm text-gray-300 whitespace-pre-wrap">[PASTE YOUR PERSONALIZED OPENING LINE FROM THE AI HERE]
+
+I see you take orders directly through DMs/WhatsApp, which is great for connecting with customers!
+
+My job is to help amazing businesses like yours streamline that process. I noticed a few quick ideas that could help you manage orders more easily and potentially reach thousands of new customers outside of Instagram.
+
+Would you be open to hearing one or two of these ideas for free? No pressure at all.
+
+Keep up the great work!</pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold text-lg text-white">Template B: For businesses with no website or a bad website (Salons, Cafes, etc.)</h4>
+                            <div class="bg-gray-900 p-4 rounded-lg mt-2 relative">
+                                 <button class="copy-btn absolute top-3 right-3 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold py-1 px-3 rounded" data-copy-target="script-b">Copy</button>
+                                <pre id="script-b" class="font-mono text-sm text-gray-300 whitespace-pre-wrap">[PASTE YOUR PERSONALIZED OPENING LINE FROM THE AI HERE]
+
+My job is to help amazing businesses like yours build a powerful online presence. I had a quick look and saw you don't have a website linked, and I had a couple of ideas for how a simple, professional site could help you attract new local customers through Google.
+
+Would you be open to hearing one or two of these ideas for free? No pressure at all.
+
+Keep up the great work!</pre>
                             </div>
                         </div>
                     </div>
@@ -169,38 +161,51 @@
             </div>
         </section>
 
-        <!-- Chapter 5: Measuring Victory -->
-        <section class="fade-in-section">
-            <h2 class="text-3xl font-bold text-center mb-8">Chapter 5: Your Compensation & ROI</h2>
-            <p class="text-center text-gray-400 mb-8 max-w-3xl mx-auto">We believe in rewarding performance. Your compensation is designed to give you a stable base and unlimited earning potential. When you win, the company wins, and you get a direct share of that victory.</p>
-            <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
-                <h3 class="text-2xl font-bold mb-4">Your Compensation Structure</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <p class="text-gray-400 text-sm">BASE SALARY</p>
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Your Salary & Bonus (Commission)</h2>
+            <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg">
+                <p class="mb-6 text-gray-400">Your pay is made of two parts: a fixed salary for your daily work, and a bonus (commission) for every new client you help us get. This means your earning potential is unlimited.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <p class="text-gray-400 text-sm">FIXED SALARY</p>
                         <p class="text-3xl font-bold text-white">₹5,000 / month</p>
-                        <p class="text-gray-400 text-sm">Guaranteed income for your dedicated work.</p>
                     </div>
-                    <div class="bg-orange-800 p-6 rounded-lg">
-                        <p class="text-orange-200 text-sm">PERFORMANCE COMMISSION</p>
-                        <p class="text-3xl font-bold text-white">₹1,000</p>
-                        <p class="text-orange-200 text-sm">For EACH client deal that you generate and we close.</p>
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <p class="text-gray-400 text-sm">BONUS</p>
+                        <p class="text-3xl font-bold text-white">Tiered Commission</p>
                     </div>
                 </div>
-                <div class="mt-10">
-                    <h4 class="text-xl font-semibold text-center mb-4">Your ROI Calculator</h4>
-                    <p class="text-center text-gray-400 mb-4 text-sm">This tool shows the direct financial impact you have on the company.</p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 bg-gray-800 p-4 rounded-lg">
-                        <div class="flex items-center gap-2">
-                            <label for="deals" class="font-semibold">Deals You Generate in a Month:</label>
-                             <input type="number" id="deals" class="bg-gray-700 text-white rounded p-2 w-24 text-center" placeholder="e.g., 2">
+                <div class="mt-8">
+                    <h3 class="font-bold text-lg mb-4">How Your Commission Bonus Works:</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-900 p-4 rounded-lg">
+                            <p class="font-bold text-white">Bronze Tier: 10% Commission</p>
+                            <p class="text-sm text-gray-400">For projects up to ₹14,999. (Example: a ₹4,999 project earns you a **₹500 bonus**).</p>
                         </div>
-                        <button id="calculateBtn" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Calculate My Impact</button>
+                        <div class="bg-gray-900 p-4 rounded-lg">
+                            <p class="font-bold text-white">Silver Tier: 12% Commission</p>
+                            <p class="text-sm text-gray-400">For projects from ₹15,000 to ₹49,999. (Example: a ₹20,000 project earns you a **₹2,400 bonus**).</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg">
+                            <p class="font-bold text-white">Gold Tier: 15% Commission</p>
+                            <p class="text-sm text-gray-400">For projects ₹50,000 and above. (Example: a ₹1,00,000 project earns you a **₹15,000 bonus**).</p>
+                        </div>
                     </div>
-                    <div id="roiResult" class="text-center mt-4 text-xl h-24"></div>
+                </div>
+                <div class="mt-8">
+                     <h3 class="font-bold text-lg mb-2">How a "Closed Deal" is Counted:</h3>
+                     <p class="text-gray-400 text-sm">A deal is officially "closed" and your commission is earned when: <br>1. You find the lead and get the first positive reply. <br>2. The management team closes the deal. <br>3. The new client has **paid their first invoice** to the company. <br>Once the payment is confirmed, your commission will be marked as "Earned" and paid with your next monthly salary.</p>
                 </div>
             </div>
         </section>
+        
+         <section>
+            <h2 class="text-2xl font-bold mb-4">Your Future at Jetweb Labs</h2>
+            <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg">
+                <p class="text-gray-400">Your role is focused on lead generation now. As you master this system and consistently hit your targets, your role will grow. High performers at Jetweb Labs are given more responsibility. In the future, this could include learning to manage client projects, helping with social media content creation, or even training new team members. Your growth is tied directly to your performance.</p>
+            </div>
+        </section>
+
     </div>
 
     <script>
@@ -212,71 +217,34 @@
                 setTimeout(() => { toast.classList.add('opacity-0'); }, 2000);
             }
 
-            const copyBtn = document.getElementById('copyScriptBtn');
-            const scriptContent = document.getElementById('scriptContent');
-            copyBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText(scriptContent.innerText).then(() => {
-                    showToast('Script copied!');
-                }).catch(err => { console.error('Failed to copy: ', err); });
-            });
-
-            const sections = document.querySelectorAll('.fade-in-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); }
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            copyButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-copy-target');
+                    const content = document.getElementById(targetId);
+                    if (content) {
+                        navigator.clipboard.writeText(content.innerText).then(() => {
+                            showToast('Copied!');
+                        }).catch(err => { console.error('Failed to copy: ', err); });
+                    }
                 });
-            }, { threshold: 0.1 });
-            sections.forEach(section => { observer.observe(section); });
+            });
 
             const accordions = document.querySelectorAll('.accordion-item');
             accordions.forEach(item => {
                 const header = item.querySelector('.accordion-header');
                 const content = item.querySelector('.accordion-content');
                 header.addEventListener('click', () => {
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                        header.classList.remove('bg-gray-800');
-                    } else {
-                        accordions.forEach(otherItem => {
-                            otherItem.querySelector('.accordion-content').style.maxHeight = null;
-                            otherItem.querySelector('.accordion-header').classList.remove('bg-gray-800');
-                        })
+                    const isOpen = content.style.maxHeight;
+                     accordions.forEach(otherItem => {
+                        otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                    });
+                    if (!isOpen) {
                         content.style.maxHeight = content.scrollHeight + "px";
-                        header.classList.add('bg-gray-800');
                     }
                 });
             });
-
-            const calculateBtn = document.getElementById('calculateBtn');
-            const dealsInput = document.getElementById('deals');
-            const roiResult = document.getElementById('roiResult');
-            const SALARY = 5000;
-            const COMMISSION_PER_DEAL = 1000;
-            const DEAL_VALUE = 15000;
-
-            calculateBtn.addEventListener('click', () => {
-                const deals = parseInt(dealsInput.value);
-
-                if (isNaN(deals) || deals < 0) {
-                    roiResult.innerHTML = '<p class="text-orange-500">Please enter a valid number of deals (0 or more).</p>';
-                    return;
-                }
-
-                const totalCommission = deals * COMMISSION_PER_DEAL;
-                const yourTotalEarnings = SALARY + totalCommission;
-                const companyRevenue = deals * DEAL_VALUE;
-                const companyProfit = companyRevenue - yourTotalEarnings;
-                
-                let profitColor = companyProfit >= 0 ? 'text-green-400' : 'text-red-400';
-
-                roiResult.innerHTML = `
-                    <p>Your Earnings: <span class="font-bold text-white">₹${yourTotalEarnings.toLocaleString('en-IN')}</span></p>
-                    <p>Company Revenue Generated: <span class="font-bold text-white">₹${companyRevenue.toLocaleString('en-IN')}</span></p>
-                    <p>Net Profit for Company: <span class="font-bold ${profitColor}">₹${companyProfit.toLocaleString('en-IN')}</span></p>
-                `;
-            });
         });
     </script>
-
 </body>
 </html>
